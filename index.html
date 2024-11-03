@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Doubloons</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0077be 0%, #004e92 100%);
+            color: #fff;
+            overflow-x: hidden;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #0077be 0%, #004e92 100%);
+            }
+
+            50% {
+                background: linear-gradient(135deg, #00A3E0 0%, #004e92 100%);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #004e92 0%, #0077be 100%);
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-title {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+            animation: glow 1.5s infinite alternate;
+            letter-spacing: 2px;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700, 0 0 50px #FFA500;
+            }
+
+            100% {
+                text-shadow: 0 0 25px #FFD700, 0 0 50px #FFD700, 0 0 60px #FFD700, 0 0 70px #FFA500;
+            }
+        }
+
+        .coin {
+            width: 120px;
+            margin-left: 20px;
+            transition: transform 0.3s;
+        }
+
+        .coin:hover {
+            transform: rotate(360deg);
+        }
+
+        .calculator {
+            margin-top: 20px;
+            position: relative;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .input-field {
+            padding: 15px;
+            font-size: 1.5em;
+            margin: 10px;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            transition: all 0.3s ease;
+            width: calc(50% - 24px);
+            display: inline-block;
+        }
+
+        .input-field:focus {
+            border-color: #FFA500;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.7em;
+            color: #fff;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background-color: #FFC107;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .result {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #FFD700;
+            animation: shimmer 1s infinite;
+            text-align: center;
+        }
+
+        @keyframes shimmer {
+            0% {
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500, 0 0 30px #FFA500;
+            }
+
+            100% {
+                text-shadow: 0 0 30px #FFD700, 0 0 40px #FFA500, 0 0 50px #FFA500;
+            }
+        }
+
+        .allure-message {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 69, 0, 0.9);
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+
+        .allure-message h2 {
+            font-size: 2.8em;
+            color: #FFD700;
+            animation: bounce 1s infinite;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-top: 40px;
+            text-align: center;
+            color: #FFD700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .faq-item {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            background-color: rgba(255, 165, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .tips {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        .ask-question {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            background-color: #fff;
+            resize: none;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #FFA500;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+            .input-field,
+            .button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .coin {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .hero-title {
+                font-size: 3.5em;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const calculateBtn = document.getElementById("calculateBtn");
+            const resultDisplay = document.getElementById("resultDisplay");
+            calculateBtn.addEventListener("click", () => {
+                const hours = parseFloat(document.getElementById("hoursInput").value) || 0;
+                const score = parseFloat(document.getElementById("scoreInput").value) || 0;
+
+                const doubloons = Math.floor(hours * score * (Math.random() * 0.2 + 1));
+                const fortunes = [
+                    `Ahoy! Ye have unearthed ${doubloons} shiny doubloons!`,
+                    `Ye’ve charmed the seas and gained ${doubloons} doubloons!`,
+                    `By the winds of fortune, yer haul is ${doubloons} doubloons!`,
+                ];
+
+                const fortuneMessage = fortunes[Math.floor(Math.random() * fortunes.length)];
+                resultDisplay.innerHTML = fortuneMessage;
+
+                const audio = new Audio('bg.mp3'); 
+                audio.play();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1 class="hero-title">Unlimited Doubloon</h1>
+            <img src="doubloon.png" alt="Coin" class="coin">
+        </div>
+
+        <div class="calculator">
+            <input type="number" id="hoursInput" class="input-field" placeholder="Hours spent" />
+            <input type="number" id="scoreInput" class="input-field" placeholder="Votes achieved" />
+            <button id="calculateBtn" class="button">Calculate Doubloons!</button>
+        </div>
+
+        <div id="resultDisplay" class="result"></div>
+
+        <div class="allure-message">
+            <h2>Join the adventure and multiply your wealth!</h2>
+        </div>
+
+        <div class="section-title">Tips for Doubling Your Doubloons</div>
+        <div class="tips">
+            <div class="faq-item">1. The more time you invest, the greater your treasure! Logging more hours will earn
+                you more Doubloons to redeem for exciting prizes.</div>
+            <div class="faq-item">2. Choose projects that excite you! When you're passionate about what you're building,
+                you're more likely to stay motivated and engaged.</div>
+            <div class="faq-item">3. Collaborate with friends or fellow Hack Club members. Teamwork can lead to
+                innovative ideas and make the building process more enjoyable.</div>
+            <div class="faq-item">4. Don’t hesitate to explore new skills. Try something outside your comfort zone—this
+                could lead to discovering a new passion or skill set.</div>
+            <div class="faq-item">5. Share your progress regularly. Not only does this keep you accountable, but it also
+                invites feedback and support from the community.</div>
+            <div class="faq-item">6. Utilize available resources. Take advantage of Hack Club’s workshops and tutorials
+                to enhance your project skills and knowledge.</div>
+            <div class="faq-item">7. Make it open-source. By sharing your projects, you contribute to the community and
+                can receive valuable insights from others.</div>
+            <div class="faq-item">8. Set small, achievable goals. Break your project into manageable tasks to maintain
+                momentum and celebrate your progress.</div>
+            <div class="faq-item">9. Engage in the community. Join discussions, ask questions, and help others; being
+                active can lead to new opportunities and inspiration.</div>
+            <div class="faq-item">10. Have fun! Remember, the goal is to enjoy the process of creating and learning, not
+                just the end result.</div>
+
+        </div>
+
+        <div class="ask-question">
+            <h3>Ask the Doubloon Spirits</h3>
+            <textarea id="userQuestion" rows="3" placeholder="What do you wish to ask?"></textarea>
+            <button class="button">Ask</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Unlimited Doubloons. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
